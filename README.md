@@ -47,7 +47,12 @@ The following tasks can be run from the command line:
 The web server runs with the NodeJS technology. To run it execute the file /backend/bin/www with node.
 
     node backend/bin/www
-    
+
 ### Config
 
 To be able to use the GitHub integration, the file backend/config/keys.js should be changed to contain the actual Application OAuth keys.
+
+# json-schema-editor
+Web-based editor for JSON schemata.
+
+Please sign the CLA using the CLA assistant before contributing: https://cla-assistant.io/eclipsesource/json-schema-editor
