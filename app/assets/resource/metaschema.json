@@ -1,167 +1,92 @@
 {
   "definitions": {
-    "rule": {
+    "string": {
       "type": "object",
-      "required": ["condition", "effect"],
+      "required": ["type"],
       "properties": {
-        "effect": {
+        "type": {
           "type": "string",
-          "enum": ["", "HIDE"]
+          "enum": ["String"]
         },
-        "condition": {
-          "type": "object",
-          "properties": {
-            "scope": {
-              "type": "object",
-              "properties": {
-                "$ref": {
-                  "type": "string"
-                }
-              }
-            },
-            "expectedValue": {
-              "type": "string"
-            }
-          }
+        "label": {
+          "type": "string"
+        },
+        "minLength": {
+          "type": "integer"
+        },
+        "maxLength": {
+          "type": "integer"
+        },
+        "pattern": {
+          "type": "string"
         }
       }
     },
-    "runtimeProps": {
+    "number": {
       "type": "object",
+      "required": ["type"],
       "properties": {
-        "rule": {
-          "$ref": "#/definitions/rule"
+        "type": {
+          "type": "string",
+          "enum": ["Number"]
+        },
+        "label": {
+          "type": "string"
+        },
+        "multipleOf": {
+          "type": "integer"
+        },
+        "minimum": {
+          "type": "integer"
+        },
+        "maximum": {
+          "type": "integer"
+        },
+        "exclusiveMaximum": {
+          "type": "boolean"
+        },
+        "exclusiveMinimum": {
+          "type": "boolean"
         }
       }
     },
-    "control": {
-      "type": "object",
-      "allOf": [{
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "Control"
-            ]
-          },
-          "label": {
-            "type": "string"
-          },
-          "scope": {
-            "type": "object",
-            "properties": {
-              "$ref": {
-                "type": "string"
-              }
-            }
-          },
-          "readOnly": {
-            "type": "boolean"
-          }
-        }
-      }, {
-        "$ref": "#/definitions/runtimeProps"
-      }],
-      "required": ["type", "scope"]
-    },
-    "layout": {
+    "object": {
       "type": "object",
       "required": ["type", "elements"],
-      "allOf": [{
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "HorizontalLayout",
-              "VerticalLayout"
-            ]
-          },
-          "elements": {
-            "type": "array",
-            "items": {
-              "$ref": "#"
-            }
-          }
-        }
-      }, {
-        "$ref": "#/definitions/runtimeProps"
-      }]
-    },
-    "group": {
-      "type": "object",
-      "required": ["type", "elements"],
-      "allOf": [{
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": ["Group"]
-          },
-          "label": {
-            "type": "string"
-          },
-          "elements": {
-            "type": "array",
-            "items": {
-              "$ref": "#"
-            }
-          }
-        }
-      }, {
-        "$ref": "#/definitions/runtimeProps"
-      }]
-    },
-    "category": {
-      "type": "object",
       "properties": {
         "type": {
           "type": "string",
           "enum": [
-            "Category"
+            "Object"
           ]
         },
         "label": {
           "type": "string"
         },
+        "additionalProperties": {
+          "type": "boolean"
+        },
+        "minProperties": {
+           "type": "integer"
+         },
+         "maxProperties": {
+           "type": "integer"
+         },
         "elements": {
           "type": "array",
           "items": {
             "$ref": "#"
           }
         }
-      },
-      "required": ["type", "elements"]
-    },
-    "categorization": {
-      "type": "object",
-      "required": ["type", "elements"],
-      "allOf": [{
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "Categorization"
-            ]
-          },
-          "elements": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/category"
-            }
-          }
-        }
-      }, {
-        "$ref": "#/definitions/runtimeProps"
-      }]
+      }
     }
   },
   "type": "object",
   "anyOf": [{
-    "$ref": "#/definitions/categorization"
+    "$ref": "#/definitions/object"
   }, {
-    "$ref": "#/definitions/layout"
+    "$ref": "#/definitions/string"
   }, {
-    "$ref": "#/definitions/group"
-  }, {
-    "$ref": "#/definitions/control"
+    "$ref": "#/definitions/number"
   }]
 }

@@ -20,7 +20,7 @@ module app.tree {
         constructor(private layoutsService:LayoutsService, private toolboxService:ToolboxService, private $q:IQService,
             private validatorService: ValidatorService) {
             super();
-            layoutsService.getElementByType('VerticalLayout').then((element:LayoutToolboxElement) => {
+            layoutsService.getElementByType('Object').then((element:LayoutToolboxElement) => {
                 var rootElement:TreeElement = element.convertToTreeElement();
                 rootElement['root'] = 'root';
                 this.elements.push(rootElement);

@@ -37,6 +37,7 @@ module app.toolbox {
                     }
                 },
                 dropped: (event) => {
+                    console.error("aaa");
                     //if the element is being dragged into the toolbar itself, return
                     if (event.dest.nodesScope.$modelValue == event.source.nodesScope.$modelValue) {
                         return;

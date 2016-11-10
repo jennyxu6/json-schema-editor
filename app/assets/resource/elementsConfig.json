@@ -1,27 +1,11 @@
 [
   {
-    "typeLabel": "VerticalLayout",
-    "description": "",
-    "iconFont": "view_stream"
+    "typeLabel": "String"
   },
   {
-    "typeLabel": "HorizontalLayout",
-    "description": "",
-    "iconFont": "view_column"
+    "typeLabel": "Number"
   },
   {
-    "typeLabel": "Group",
-    "description": "",
-    "iconFont": "crop_free"
-  },
-  {
-    "typeLabel": "Categorization",
-    "description": "",
-    "iconFont": "view_module"
-  },
-  {
-    "typeLabel": "Category",
-    "description": "",
-    "iconFont": "folder_open"
+    "typeLabel": "Object"
   }
 ]
