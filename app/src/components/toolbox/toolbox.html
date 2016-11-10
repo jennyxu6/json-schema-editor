@@ -15,19 +15,19 @@
         <div ui-tree="toolbox.treeOptions" id="toolbox-root" data-drag-delay="100" data-clone-enabled="true" data-nodrop-enabled="true" select="17">
             <ol ui-tree-nodes
                 ng-model="toolbox.toolboxService.elements">
-                <li ng-repeat="element in toolbox.toolboxService.elements"
+                <li ng-repeat="element in toolbox.toolboxService.dataTypes"
                     ui-tree-node ng-hide="toolbox.shouldHide(element)">
-                    <div ui-tree-handle class="tree-node tree-node-content" ng-class="{'toolbox-element-placed': toolbox.isPlaced(element)}" ng-style="{cursor: (element.isObject() ? 'default' : 'move')}">
-                        <md-icon ng-if="element.isObject()" ng-click="toolbox.clickedIcon(element)" class="material-icons">{{element.getIcon()}}
-                        </md-icon>
-                        <span ng-if="element.isObject()" ng-click="toolbox.clickedIcon(element)" style="overflow:hidden;" class="left-margin">{{element.getLabel()}}</span>
-                        <md-icon ng-if="!element.isObject()" class="material-icons">{{element.getIcon()}}
-                        </md-icon>
-                        <span ng-if="!element.isObject()" style="overflow:hidden;" class="left-margin">{{element.getLabel()}}</span>
-                        <a class="pull-right left-margin" ng-hide="!toolbox.canBeRemoved(element, this)"
+                    <div ui-tree-handle class="tree-node tree-node-content" ng-class="{'toolbox-element-placed': toolbox.isPlaced(element)}" ng-style="{cursor: 'move'}">
+                        <!-- <md-icon ng-if="element.isObject()" ng-click="toolbox.clickedIcon(element)" class="material-icons">{{element.getIcon()}}
+                        </md-icon> -->
+                        <span ng-click="toolbox.clickedIcon(element)" style="overflow:hidden;" class="left-margin">{{element.getType()}}</span>
+                        <!-- <md-icon ng-if="!element.isObject()" class="material-icons">{{element.getIcon()}}
+                        </md-icon> -->
+                        <!-- <span ng-if="!element.isObject()" style="overflow:hidden;" class="left-margin">{{element.getLabel()}}</span> -->
+                        <!-- <a class="pull-right left-margin" ng-hide="!toolbox.canBeRemoved(element, this)"
                            ng-click="toolbox.removeDataElement(element)">
                             <md-icon class="btn material-icons">delete</md-icon>
-                        </a>
+                        </a> -->
                     </div>
                 </li>
             </ol>

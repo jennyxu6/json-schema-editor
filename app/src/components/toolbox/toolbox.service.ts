@@ -7,6 +7,7 @@ module app.toolbox {
     import DataschemaService = app.core.dataschema.DataschemaService;
     import LayoutToolboxElement = app.core.model.LayoutToolboxElement;
     import ControlToolboxElement = app.core.model.ControlToolboxElement;
+    import ToolboxDataType = app.core.model.ToolboxDataType;
     import ToolboxElement = app.core.model.ToolboxElement;
     import TreeElement = app.core.model.TreeElement;
     import Metaschema = app.core.metaschema.Metaschema;
@@ -25,7 +26,11 @@ module app.toolbox {
     export class ToolboxService implements Originator<ToolboxServiceMemento> {
         static $inject = ['DataschemaService', '$q', 'LayoutsService'];
 
-        public elements:ControlToolboxElement[] = [];
+        public dataTypes: ToolboxDataType[] =[
+            new ToolboxDataType("string"),
+            new ToolboxDataType("integer")
+        ];
+        public elements: ControlToolboxElement[] = [];
         public currentPath:string[] = [];
 
         private placedTimes:any = {};

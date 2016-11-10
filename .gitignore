@@ -8,3 +8,4 @@ app/assets/libs
 dist
 temp
 test
+env.sh

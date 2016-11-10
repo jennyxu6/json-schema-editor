@@ -109,7 +109,7 @@ github.get('/getFilesFromBranch',
 				if(error){
 					return next(error);
 				}
-			       
+
 				var treeUrl = JSON.parse(result.body).commit.tree.url;
 				if(!treeUrl){
 				    return next('Cannot find url of file tree');
