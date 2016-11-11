@@ -2,11 +2,15 @@
   "definitions": {
     "string": {
       "type": "object",
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["String"]
+          "enum": [
+            "String"
+          ]
         },
         "label": {
           "type": "string"
@@ -24,11 +28,15 @@
     },
     "number": {
       "type": "object",
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["Number"]
+          "enum": [
+            "Number"
+          ]
         },
         "label": {
           "type": "string"
@@ -52,7 +60,10 @@
     },
     "object": {
       "type": "object",
-      "required": ["type", "elements"],
+      "required": [
+        "type",
+        "elements"
+      ],
       "properties": {
         "type": {
           "type": "string",
@@ -67,16 +78,59 @@
           "type": "boolean"
         },
         "minProperties": {
-           "type": "integer"
-         },
-         "maxProperties": {
-           "type": "integer"
-         },
+          "type": "integer"
+        },
+        "maxProperties": {
+          "type": "integer"
+        },
         "elements": {
           "type": "array",
           "items": {
             "$ref": "#"
           }
+        }
+      }
+    },
+    "boolean": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Boolean"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "true" : {
+          "type": "boolean"
+        }
+      }
+    },
+    "integer": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Integer"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "minimum": {
+          "type": "integer"
+        },
+        "maximum": {
+          "type": "integer"
         }
       }
     }
@@ -88,5 +142,9 @@
     "$ref": "#/definitions/string"
   }, {
     "$ref": "#/definitions/number"
+  }, {
+    "$ref": "#/definitions/boolean"
+  }, {
+    "$ref": "#/definitions/integer"
   }]
 }
