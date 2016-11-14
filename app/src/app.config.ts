@@ -22,11 +22,6 @@ module app {
                             controllerAs: 'header',
                             templateUrl: 'app/src/components/header/header.html'
                         },
-                        'treeContainer': {
-                            controller: 'MyTreeController',
-                            controllerAs: 'tree',
-                            templateUrl: 'app/src/components/tree/tree.html'
-                        },
                         'toolboxContainer': {
                             controller: 'ToolboxController',
                             controllerAs: 'toolbox',
@@ -36,11 +31,6 @@ module app {
                             controller: 'LayoutsController',
                             controllerAs: 'layouts',
                             templateUrl: 'app/src/components/layouts/layouts.html'
-                        },
-                        'detailContainer': {
-                            controller: 'DetailController',
-                            controllerAs: 'detail',
-                            templateUrl: 'app/src/components/detail/detail.html'
                         }
                     }
                 })

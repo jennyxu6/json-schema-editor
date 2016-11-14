@@ -6,7 +6,6 @@ module app.detail {
     import ValidatorService = app.core.ValidatorService;
 
     class DetailController {
-
         static $inject = ['DetailService', '$scope', 'TreeService', 'ValidatorService'];
 
         constructor(public detailService:DetailService, $scope:IScope, treeService:TreeService, private validatorService:ValidatorService) {
@@ -15,7 +14,6 @@ module app.detail {
                 this.validatorService.validateTreeElement(this.detailService.currentElement);
             });
         }
-
     }
 
     angular.module('app.detail').controller('DetailController', DetailController);

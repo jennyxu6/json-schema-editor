@@ -19,7 +19,7 @@
 <div class="jsonFormsEditor-Header" ui-view="headerContainer"></div>
 
 <!-- show edit area -->
-<div class="jsonFormsEditor-Body" style="height: calc(100% - 66px);" ui-view="contentContainer">
+<div ng-controller="AppController as appCtrl"  class="jsonFormsEditor-Body" style="height: calc(100% - 66px);" ui-view="contentContainer">
     <div layout="row" class="bottom-border" style="height:100%;">
 
         <!-- toolbox -->
@@ -28,11 +28,7 @@
             <!-- <div style="overflow-y: auto" ui-view="toolboxContainer"></div> -->
         </div>
 
-        <!-- tree view -->
-        <div flex class="side-borders" layout-padding ui-view="treeContainer"></div>
-
-        <!-- properties -->
-        <div class="toolbar-container layout-column" ui-view="detailContainer"></div>
+        <tree-master-detail flex layout="column" schema="appCtrl.schema" uischema="appCtrl.uischema"></tree-master-detail>
     </div>
 </div>
 
